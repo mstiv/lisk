@@ -162,6 +162,7 @@ describe('loader', () => {
 			deleteBlocksAfterHeightStub = sinonSandbox.stub().resolves();
 
 			loggerStub = {
+				child: sinonSandbox.spy(),
 				trace: sinonSandbox.spy(),
 				info: sinonSandbox.spy(),
 				error: sinonSandbox.spy(),

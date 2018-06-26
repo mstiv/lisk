@@ -31,6 +31,7 @@ describe('rounds', () => {
 
 	// Init fake logger
 	var logger = {
+		child: sinon.spy(),
 		trace: sinon.spy(),
 		debug: sinon.spy(),
 		info: sinon.spy(),

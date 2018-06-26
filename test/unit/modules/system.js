@@ -32,6 +32,7 @@ describe('system', () => {
 	beforeEach(done => {
 		// Library
 		loggerStub = {
+			child: sinonSandbox.spy(),
 			trace: sinonSandbox.spy(),
 			info: sinonSandbox.spy(),
 			error: sinonSandbox.spy(),
