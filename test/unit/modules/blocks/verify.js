@@ -33,6 +33,9 @@ describe('blocks/verify', () => {
 	beforeEach(done => {
 		// Logic
 		loggerStub = {
+			startTimer: sinonSandbox.stub().returns({
+				done: () => sinonSandbox.spy(),
+			}),
 			trace: sinonSandbox.spy(),
 			info: sinonSandbox.spy(),
 			error: sinonSandbox.spy(),
