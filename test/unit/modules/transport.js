@@ -34,6 +34,7 @@ var expect = chai.expect;
 describe('transport', () => {
 	var dbStub;
 	var loggerStub;
+	var childLoggerStub;
 	var busStub;
 	var schemaStub;
 	var networkStub;
@@ -166,9 +167,25 @@ describe('transport', () => {
 			query: sinonSandbox.spy(),
 		};
 
-		loggerStub = {
+		childLoggerStub = {
+			startTimer: sinonSandbox.stub().returns({
+				done: () => sinonSandbox.spy(),
+			}),
+			done: sinonSandbox.spy(),
+			trace: sinonSandbox.spy(),
 			debug: sinonSandbox.spy(),
+			info: sinonSandbox.spy(),
+			log: sinonSandbox.spy(),
+			warn: sinonSandbox.spy(),
 			error: sinonSandbox.spy(),
+		};
+		loggerStub = {
+			child: () => childLoggerStub,
+			trace: sinonSandbox.spy(),
+			info: sinonSandbox.spy(),
+			error: sinonSandbox.spy(),
+			warn: sinonSandbox.spy(),
+			debug: sinonSandbox.spy(),
 		};
 
 		busStub = {};
